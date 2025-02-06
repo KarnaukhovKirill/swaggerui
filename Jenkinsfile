@@ -7,13 +7,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git credentialsId: 'bitbucket-credentials', 
-                    url: 'git@bitbucket.org:your-repo/swagger-project.git', 
-                    branch: 'main'
-            }
-        }
 
         stage('Build Docker Image') {
             steps {
