@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     // sh "docker build -t ${IMAGE_NAME} ."
-                        sh 'wsl docker build -t swagger-ui-custom .'
+                        docker build -t swagger-ui-custom .
                 }
             }
         }
@@ -23,8 +23,8 @@ pipeline {
         stage('Run Swagger UI') {
             steps {
                 script {
-                    sh 'wsl docker rm -f ${CONTAINER_NAME} || true'
-                    sh 'wsl docker run -d --name ${CONTAINER_NAME} -p 8080:8080 ${IMAGE_NAME}'
+                    docker rm -f ${CONTAINER_NAME} || true
+                        docker run -d --name ${CONTAINER_NAME} -p 8080:8080 ${IMAGE_NAME}
                 }
             }
         }
