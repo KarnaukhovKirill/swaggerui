@@ -3,11 +3,19 @@ pipeline {
         label 'ecm'
     }
 
+        
     environment {
         IMAGE_NAME = "swagger-ui-custom"
         CONTAINER_NAME = "swagger-ui-container"
     }
 
+        stage('Debug') {
+            steps {
+                script {
+                    echo "Jenkinsfile загружен правильно!"
+                }
+            }
+        
     stages {
 
         stage('Build Docker Image') {
