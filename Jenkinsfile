@@ -1,6 +1,6 @@
-pipeline {
+mpipeline {
         agent {
-        label 'мастер'
+        label 'ecm'
     }
 
     environment {
