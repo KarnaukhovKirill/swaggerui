@@ -14,8 +14,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // sh "docker build -t ${IMAGE_NAME} ."
                         docker build -t swagger-ui-custom .
+                                
                 }
             }
         }
