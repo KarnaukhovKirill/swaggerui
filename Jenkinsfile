@@ -1,21 +1,16 @@
 pipeline {
-        agent any
+    agent any
 
-        
     environment {
         IMAGE_NAME = "swagger-ui-custom"
         CONTAINER_NAME = "swagger-ui-container"
     }
 
-
-        
     stages {
-
         stage('Build Docker Image') {
             steps {
                 script {
-                        docker build -t swagger-ui-custom .
-                                
+                    bat "wsl docker build -t ${env.IMAGE_NAME} ."
                 }
             }
         }
@@ -23,8 +18,8 @@ pipeline {
         stage('Run Swagger UI') {
             steps {
                 script {
-                    docker rm -f ${CONTAINER_NAME} || true
-                        docker run -d --name ${CONTAINER_NAME} -p 8080:8080 ${IMAGE_NAME}
+                    bat "wsl docker rm -f ${env.CONTAINER_NAME} || true"
+                    bat "wsl docker run -d --name ${env.CONTAINER_NAME} -p 8080:8080 ${env.IMAGE_NAME}"
                 }
             }
         }
