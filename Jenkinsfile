@@ -9,14 +9,19 @@ pipeline {
         CONTAINER_NAME = "swagger-ui-container"
     }
 
+
+        
+    stages {
+    
         stage('Debug') {
             steps {
                 script {
-                    echo "Jenkinsfile загружен правильно!"
-                }
+                     echo "Jenkinsfile загружен правильно!"
+                 }
             }
-        
-    stages {
+        }
+    
+            
 
         stage('Build Docker Image') {
             steps {
