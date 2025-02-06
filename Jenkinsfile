@@ -1,5 +1,7 @@
 pipeline {
-    agent any // Запускаем на любом доступном агенте
+        agent {
+        label 'мастер'
+    }
 
     environment {
         IMAGE_NAME = "swagger-ui-custom"
