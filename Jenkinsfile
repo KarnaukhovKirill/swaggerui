@@ -1,7 +1,5 @@
 pipeline {
-        agent {
-        label 'ecm'
-    }
+        agent any
 
         
     environment {
